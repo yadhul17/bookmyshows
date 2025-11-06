@@ -1,0 +1,31 @@
+<!-- <div class="w-full h-100 ">
+    {% for i in about %}
+     <div class="w-full h-100 ">
+    <h1></h1>
+    <img src="{{i.cast.url}}" alt="image1" class="w-100 h-100 border-1">
+    </div>
+    {% endfor %}
+    </div> -->
+
+
+
+    class About(models.Model):
+    crew = models.FileField(upload_to='upload/',null=True, blank=True)
+    cast = models.FileField(upload_to='upload/',null=True, blank=True)
+    movie=models.ForeignKey(Movie,on_delete=models.CASCADE)
+    bg=models.FileField(upload_to='upload/',null=True,blank=True)
+    description=models.TextField(max_length=100)
+
+
+
+
+    class Type(models.Model):
+   tname=models.TextField()
+  
+class About(models.Model):
+    types=models.ForeignKey(Type,on_delete=models.CASCADE)
+    movie=models.ForeignKey(Movie,on_delete=models.CASCADE)
+    bg=models.FileField(upload_to='upload/',null=True,blank=True)
+    description=models.TextField(max_length=100)
+    img=models.FileField(upload_to='upload/',null=True, blank=True)
+    imgname=models.TextField()

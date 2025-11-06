@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+<body>
+<main class="w-full h-[200vh] bg-white flex flex-col ">
+    <nav class=" w-full h-20 bg-white flex   p-3 items-center justify-center " >
+        <div>
+    <img src="{% static 'images/BMS_logo_new.png' %}" alt="Logo" class="text-black w-30 mr-300">        </div>
+        <div class="flex justify-center items-center absolute ml-20">
+  <div class="relative ml-20">
+    <span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none  color-black">
+      search
+    </span>
+    <input type="search" placeholder="search for movies, events, plays..."
+      class="pl-10 pr-3 border border-black w-130 h-10 p-3 placeholder:text-black placeholder:tracking-wide bg-transparent"
+    />
+  </div>
+  <div class="ml-80 flex justify-center items-center ">
+    <h3 class="text-xl text-black">kochi</h3>
+    <span class="material-symbols-outlined ml-2 mt-1">
+keyboard_arrow_down
+</span>
+   <a href="../login"><input type="submit" value="sign in" class="text-white ml-10 bg-red-500 p-1 w-20 rounded"></a>
+   <a href="../logout"><input type="submit" value="logout" class="text-white ml-10 bg-red-500 p-1 w-20 rounded"></a>
+   <span class="material-symbols-outlined ml-10 ">
+menu
+</span>
+  </div>
+  </div>
+</nav>
+<div class=" h-10 w-full flex flex-row border-b-1">
+    <ul class="flex flex-row justify-start items-center ml-42  flex-1 text-xl font-serif">
+        <li class="pl-5">movies</li>
+        <li class="pl-5">strems</li>
+        <li class="pl-5">events</li>
+        <li class="pl-5">plays</li>
+        <li class="pl-5">sports</li>
+    </ul>
+     <ul class="flex flex-row justify-center items-center  pl-4 flex-1">
+        <li class="pl-4">listyourshow</li>
+        <li class="pl-4">coorperate</li>
+        <li class="pl-4">offers</li>
+        <li class="pl-4">giftcard</li>
+        
+    </ul>
+
+
+</div> 
+    
+
+    <div class="w-full h-170 bg-black relative ">
+        {% for i in abouts %} 
+        <div >
+        <img src="{{i.bg.url}}" alt="" class="w-full h-170 bg-gradient-to-r from-black-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ...">
+        
+        <div class="absolute bottom-0 left-0 w-80 h-130  ml-50 mb-12 rounded-xl shadow-3xl">
+                {% for i in movies  %}
+                    <img src="{{i.file.url}}" alt="" class="rounded-xl inset-shadow-3xl bg-fit bg-cover img-cover h-130">
+                
+
+
+
+        </div>
+        <div class="absolute bottom-0 left-0 w-150 h-80  ml-150 mb-40 rounded-xl flex flex-col items-center">
+            <div class="w-full flex-1 ">
+                <h1 class="text-[43px] text-white font-bold">{{i.title}}</h1>
+            </div>
+            {% endfor %}
+             <div class="w-full flex-1  flex justify-start ml-2 items-center">
+                <div class="w-[80%] h-15 bg-gray-800 rounded-xl flex justify-evenly ">
+                    <div class="flex-2">
+
+                    </div>
+                    <div class="flex-1 flex justify-center items-center">
+                        <a href="../ratenow/" class="bg-white p-3 rounded-xl">RATE NOW</a>
+                    </div>
+
+                </div>
+             </div>
+              <div class="w-full flex-1  flex  gap-x-5 items-center ">
+               <div class="">
+                <h1 class="bg-gray-200 p-1 ml-5">2D</h1>
+               </div>
+               <div>
+                <h1 class="bg-gray-200 p-1">Malayalam</h1>
+               </div>
+              </div>
+               <div class="w-full flex-1 text-xl font-bold flex justify-start text-white">
+                <ol class="flex justify-start gap-x-4 ml-2 items-center w-full">
+                    <li>2h 50m</li>
+                    <li>drama/thriller</li>
+                    <li>UA13+</li>
+                    <li>17oct,2025</li>
+                </ol>
+               </div>
+                <div class="w-full flex-1 flex justify-start items-center">
+                    <a href=""><input type="button" value="BOOK TICKET" class="w-50 h-10 bg-red-500 text-white rounded-xl ml-5 text-2xl"></a>
+                </div>
+
+
+        </div>
+        
+
+            
+       </div>
+       </div>
+ 
+            
+
+   
+     <div class="w-full h-50  bg-white flex justify-center items-center">
+        <div class="w-[80%] h-40   flex  flex-col justify-evenly  border-b-1 ">
+            <h1 class="font-bold text-3xl">ABOUT THE MOVIE</h1>
+           <h1 class="text-xl">{{i.description}}</h1>
+            </div>
+     {% endfor %}
+      </div>
+     
+   
+     <!-- <div class="w-full flex justify-center items-center  flex-col  mt-5 ">
+     <div  class="w-[80%] h-130 flex flex-col  justify-evenly  items-center ">
+        <div class="w-full  flex-1 flex-col items-center justify-start  border-b-1 bg-red-200">  
+            <div class="flex flex-col justify-evenly gap-y-3 ">
+            <h1 class="text-black font-serif font-bold text-3xl ml-5">CAST</h1> 
+    {% for i in casts %} 
+            <div class="flex-col   items-center ml-4">
+                
+        <img src="{{i.cast.url}}" alt="images" class="w-30 h-30 rounded-[50%] border-1 border-white  ">
+        <h1 class="text-black p-2">{{i.castname}}</h1>
+            </div>
+            </div>
+    {% endfor %}
+    </div>
+    
+   
+    
+    <div class="w-full  flex-1 flex items-center justify-start flex-col gap-y-4 bg-yellow-300">
+         <h1 class=" w-full text-black font-serif font-bold text-3xl ml-4 ">CREW</h1>  
+         <div class="flex  justify-start items-center w-full  ">
+    {% for i in crews %} 
+    
+            <div class="flex flex-col  items-center ml-4 ">
+               
+        <img src="{{i.crew.url}}" alt="images" class="w-30 h-30 rounded-[50%] border-1 border-white  ">
+        <h1 class="text-black p-3">{{i.crewname}}</h1>
+</div>
+
+    {% endfor %}
+    </div>
+    </div>
+
+     </div>
+     </div> -->
+     <div class="w-full h-120  flex justify-center">
+        <div class="w-[80%] h-120   flex-col flex  ">
+            <div class="flex-1  flex flex-col justify-around   border-b-1 ">
+                <h1 class="text-3xl ml-3 font-bold">CAST</h1>
+                <div class="flex">
+                {% for i in casts %}
+                <div class="flex flex-col justify-center items-center  ml-4 ">
+                <div >
+                     <img src="{{i.cast.url}}" alt="images" class=" w-30 h-30 rounded-[50%] border-1 border-white bg-red-200  ">
+
+
+                </div>
+                <div class="flex-1">
+                    <h1>{{i.castname}}</h1>
+
+                </div>
+                </div>
+                
+                {% endfor %}
+                </div>
+
+            </div>
+            <div class="flex-1  flex flex-col justify-around  border-b-1 ">
+                <h1 class="text-3xl ml-3 font-bold">CREW</h1>
+                <div class="flex">
+                {% for i in crews %}
+                <div class="flex flex-col justify-center items-center  ml-4 ">
+                <div >
+                     <img src="{{i.crew.url}}" alt="images" class=" w-30 h-30 rounded-[50%] border-1 border-white bg-red-200  ">
+
+
+                </div>
+                <div class="flex-1">
+                    <h1>{{i.crewname}}</h1>
+
+                </div>
+                </div>
+                
+                {% endfor %}
+                </div>
+
+            </div>
+            
+            </div>
+
+            </div>
+
+        </div>
+
+     </div>
+
+
+   
+
+</main>
+
+
+
+</body>
+</html>
