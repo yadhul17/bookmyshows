@@ -15,7 +15,6 @@
             <form action="/register/" method="post" class="w-full h-70 flex justify-evenly items-center flex-col" >
                 {% csrf_token %}
             <input type="text" required name="name" placeholder="NAME" class="rounded w-70 h-10 border pl-4 placeholder:text-center ">
-
             <input type="email" required name="email" placeholder="EMAIL" class="rounded w-70 h-10 border pl-4 placeholder:text-center  ">
              <input type="password" required name="password" placeholder="PASSWORD" class="rounded w-70 h-10 border  pl-4 placeholder:text-center">
              <div class="flex gap-x-5">
